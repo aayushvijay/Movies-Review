@@ -1,0 +1,71 @@
+<h1>Movie Search</h1>
+<title>Movie API System</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+<style>
+    h1,
+    form {
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    h1 {
+        margin-left: 5%;
+        margin-top: 3%;
+    }
+    
+    .search-box {
+        width: 25%;
+        height: 7%;
+        padding: 1%;
+        font-size: 20px;
+        border: 1px solid black;
+        margin-left: 5%;
+    }
+    
+    .btn {
+        position: relative;
+        width: 10%;
+        height: 8%;
+        padding: 1%;
+        font-size: 20px;
+        background-color: plum;
+        color: white;
+        border: none;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    .data {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 25px;
+        margin-left: 5%;
+    }
+    
+    img {
+        margin-bottom: 1%;
+        width: auto;
+        height: 300px;
+    }
+    
+    hr {
+        margin-right: 5%;
+        color: black;
+    }
+</style>
+
+<form action="/results" method="GET">
+    <input type="text" placeholder="Search..." name="search" class="search-box" required>
+    <input type="submit" class="btn">
+</form>
+<br>
+<% if(data["Search"]==null){%>
+    <div class="data">Movie not Found</div>
+    <% }else{ %>
+        <% data["Search"].forEach(function(movie){ %>
+            <div class="data"><img src='<%= movie[ "Poster"] %>'><br><b><%= "Title : " %></b>
+                <%= movie["Title"] %><br><b><%= " Type : "%></b>
+                    <%= movie["Type"]%><br> <b> <%= "Release Year : "%></b>
+                        <%= movie["Year"]%>
+                            <hr>
+            </div>
+            <br>
+            <% }) %>
+                <% } %>
