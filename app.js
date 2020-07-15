@@ -5,7 +5,7 @@ const { response } = require('express');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.render("search");
+    res.render("results");
 });
 
 app.get('/results', (req, res) => {
