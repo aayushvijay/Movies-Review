@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var request = require('request');
 const { response } = require('express');
+var chalk = require('chalk');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
@@ -20,5 +21,5 @@ app.get('/results', (req, res) => {
 });
 
 app.listen(8080, function() {
-    console.log("Movie app has started");
+    console.log(chalk.inverse.magenta("Movie app has started"));
 });
